@@ -28,52 +28,18 @@ class _MainNavigationState extends State<MainNavigation> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: screens[_selectedIndex],
-      bottomNavigationBar: BottomNavigationBar(
-        currentIndex: _selectedIndex,
-        onTap: _onTap,
-        type: BottomNavigationBarType.fixed,
-        backgroundColor: Colors.white,
-        selectedItemColor: Theme.of(context).primaryColor,
-        unselectedItemColor: Colors.grey.shade500,
-        items: const [
-          BottomNavigationBarItem(
-            icon: FaIcon(
-              FontAwesomeIcons.house,
-            ),
-            label: 'Home',
-            backgroundColor: Colors.amber,
-          ),
-          BottomNavigationBarItem(
-            icon: FaIcon(
-              FontAwesomeIcons.magnifyingGlass,
-            ),
-            label: 'Search',
-            backgroundColor: Colors.purple,
-          ),
-          BottomNavigationBarItem(
-            icon: FaIcon(
-              FontAwesomeIcons.magnifyingGlass,
-            ),
-            label: 'Search',
-            backgroundColor: Colors.teal,
-          ),
-          BottomNavigationBarItem(
-            icon: FaIcon(
-              FontAwesomeIcons.magnifyingGlass,
-            ),
-            label: 'Search',
-            backgroundColor: Colors.blueGrey,
-          ),
-          BottomNavigationBarItem(
-            icon: FaIcon(
-              FontAwesomeIcons.magnifyingGlass,
-            ),
-            label: 'Search',
-            backgroundColor: Colors.deepOrange,
-          ),
-        ],
-      ),
-    );
+        body: screens[_selectedIndex],
+        bottomNavigationBar: NavigationBar(
+          labelBehavior: NavigationDestinationLabelBehavior.alwaysHide,
+          selectedIndex: _selectedIndex,
+          onDestinationSelected: _onTap,
+          destinations: const [
+            NavigationDestination(
+                icon: FaIcon(FontAwesomeIcons.house), label: 'Home'),
+            NavigationDestination(
+                icon: FaIcon(FontAwesomeIcons.martiniGlassCitrus),
+                label: 'Search'),
+          ],
+        ));
   }
 }
