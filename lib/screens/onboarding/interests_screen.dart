@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:tiktok_clone/constants/gaps.dart';
 import 'package:tiktok_clone/constants/sizes.dart';
+import 'package:tiktok_clone/screens/onboarding/tutorial_screen.dart';
 import 'package:tiktok_clone/screens/onboarding/widgets/interest_button.dart';
 
 const interests = [
@@ -70,6 +70,12 @@ class _InterestsScreenState extends State<InterestsScreen> {
         _showTitle = false;
       });
     }
+  }
+
+  void _onNextTap() {
+    Navigator.of(context).push(MaterialPageRoute(
+      builder: (context) => const TutorialScreen(),
+    ));
   }
 
   @override
@@ -149,21 +155,24 @@ class _InterestsScreenState extends State<InterestsScreen> {
             left: Sizes.size20,
             right: Sizes.size20,
           ),
-          child: Container(
-              padding: const EdgeInsets.symmetric(
-                vertical: Sizes.size8,
-              ),
-              decoration: BoxDecoration(
-                  color: Theme.of(context).primaryColor,
-                  borderRadius: BorderRadius.circular(Sizes.size8)),
-              child: const Text(
-                'Next',
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: Sizes.size16,
+          child: GestureDetector(
+            onTap: _onNextTap,
+            child: Container(
+                padding: const EdgeInsets.symmetric(
+                  vertical: Sizes.size8,
                 ),
-              )),
+                decoration: BoxDecoration(
+                    color: Theme.of(context).primaryColor,
+                    borderRadius: BorderRadius.circular(Sizes.size8)),
+                child: const Text(
+                  'Next',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: Sizes.size16,
+                  ),
+                )),
+          ),
         ),
       ),
     );
