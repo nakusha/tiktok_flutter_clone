@@ -25,9 +25,11 @@ class _LoginFormScreenState extends State<LoginFormScreen> {
   }
 
   void onNextTap() {
-    Navigator.of(context).push(MaterialPageRoute(
-      builder: (context) => const InterestsScreen(),
-    ));
+    Navigator.of(context).pushAndRemoveUntil(
+        MaterialPageRoute(
+          builder: (context) => const InterestsScreen(),
+        ),
+        (route) => false);
   }
 
   @override
