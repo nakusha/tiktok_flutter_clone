@@ -1,10 +1,10 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:tiktok_clone/constants/gaps.dart';
 import 'package:tiktok_clone/constants/sizes.dart';
 import 'package:tiktok_clone/screens/main_navigation/widgets/nav_tab.dart';
-import 'package:tiktok_clone/screens/main_navigation/widgets/stf_screen.dart';
+import 'package:tiktok_clone/screens/main_navigation/widgets/post_button.dart';
+import 'package:tiktok_clone/screens/videos/video_timeline_screen.dart';
 
 class MainNavigation extends StatefulWidget {
   const MainNavigation({super.key});
@@ -15,19 +15,6 @@ class MainNavigation extends StatefulWidget {
 
 class _MainNavigationState extends State<MainNavigation> {
   int _selectedIndex = 0;
-
-  final screens = [
-    StfScreen(key: GlobalKey()),
-    StfScreen(key: GlobalKey()),
-    const Center(child: Text('Search')),
-    StfScreen(key: GlobalKey()),
-    StfScreen(key: GlobalKey()),
-    // const Center(child: Text('Home')),
-    // const Center(child: Text('Search')),
-    // const Center(child: Text('3')),
-    // const Center(child: Text('4')),
-    // const Center(child: Text('5')),
-  ];
 
   void _onTap(int index) {
     setState(() {
@@ -53,23 +40,23 @@ class _MainNavigationState extends State<MainNavigation> {
         children: [
           Offstage(
             offstage: _selectedIndex != 0,
-            child: const StfScreen(),
+            child: const VideoTimelineScreen(),
           ),
           Offstage(
             offstage: _selectedIndex != 1,
-            child: const StfScreen(),
+            child: Container(),
           ),
           Offstage(
             offstage: _selectedIndex != 2,
-            child: const StfScreen(),
+            child: Container(),
           ),
           Offstage(
             offstage: _selectedIndex != 2,
-            child: const StfScreen(),
+            child: Container(),
           ),
           Offstage(
             offstage: _selectedIndex != 3,
-            child: const StfScreen(),
+            child: Container(),
           ),
         ],
       ),
@@ -78,6 +65,7 @@ class _MainNavigationState extends State<MainNavigation> {
         color: Colors.black,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             NavTab(
               text: "Home",
@@ -94,55 +82,9 @@ class _MainNavigationState extends State<MainNavigation> {
               onTap: () => _onTap(1),
             ),
             Gaps.h24,
-            Stack(
-              children: [
-                Positioned(
-                  right: 20,
-                  child: Container(
-                    height: 30,
-                    width: 25,
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: Sizes.size8,
-                    ),
-                    decoration: BoxDecoration(
-                        color: Colors.blue,
-                        borderRadius: BorderRadius.circular(
-                          Sizes.size11,
-                        )),
-                  ),
-                ),
-                Positioned(
-                  left: 20,
-                  child: Container(
-                    height: 30,
-                    width: 25,
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: Sizes.size8,
-                    ),
-                    decoration: BoxDecoration(
-                        color: Colors.red,
-                        borderRadius: BorderRadius.circular(
-                          Sizes.size11,
-                        )),
-                  ),
-                ),
-                Container(
-                  height: 30,
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: Sizes.size12,
-                  ),
-                  decoration: const BoxDecoration(
-                    color: Colors.white,
-                  ),
-                  child: const Center(
-                    child: FaIcon(
-                      FontAwesomeIcons.plus,
-                      color: Colors.black,
-                      size: Sizes.size16,
-                    ),
-                  ),
-                )
-              ],
+            GestureDetector(
+              onTap: _onPostVideoButtonTap,
+              child: const PostButton(),
             ),
             Gaps.h24,
             NavTab(
