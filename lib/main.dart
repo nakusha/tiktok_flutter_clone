@@ -15,6 +15,8 @@ class MainApp extends StatelessWidget {
       title: 'TikTok Clone',
       theme: ThemeData(
           primaryColor: const Color(0xFFe9435A),
+          splashColor: Colors.transparent,
+          highlightColor: Colors.transparent,
           appBarTheme: const AppBarTheme(
             foregroundColor: Colors.black,
             backgroundColor: Colors.white,
