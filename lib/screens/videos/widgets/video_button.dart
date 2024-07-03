@@ -20,10 +20,8 @@ class VideoButton extends StatelessWidget {
         Gaps.v10,
         Text(
           text,
-          style: const TextStyle(
-            color: Colors.white,
-            fontWeight: FontWeight.bold,
-          ),
+          style:
+              const TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
         ),
       ],
     );
