@@ -27,13 +27,9 @@ class _DiscoverScreenState extends State<DiscoverScreen>
       TextEditingController(text: "");
   late final TabController _tabController;
 
-  void _onSearchChanged(String value) {
-    print(value);
-  }
+  void _onSearchChanged(String value) {}
 
-  void _onSearchSumbitted(String value) {
-    print('submitting : $value');
-  }
+  void _onSearchSumbitted(String value) {}
 
   void _onTabChanged() {
     if (_tabController.indexIsChanging) {
