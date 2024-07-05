@@ -103,13 +103,11 @@ class _ChatDetailScreenState extends State<ChatDetailScreen> {
             width: MediaQuery.of(context).size.width,
             child: BottomAppBar(
               color: Colors.grey.shade50,
-              child: Row(
+              child: const Row(
                 children: [
-                  const Expanded(child: TextField()),
+                  Expanded(child: TextField()),
                   Gaps.h20,
-                  Container(
-                    child: const FaIcon(FontAwesomeIcons.paperPlane),
-                  )
+                  FaIcon(FontAwesomeIcons.paperPlane)
                 ],
               ),
             ),
