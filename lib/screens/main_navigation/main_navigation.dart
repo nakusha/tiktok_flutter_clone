@@ -17,7 +17,7 @@ class MainNavigation extends StatefulWidget {
 }
 
 class _MainNavigationState extends State<MainNavigation> {
-  int _selectedIndex = 3;
+  int _selectedIndex = 0;
 
   void _onTap(int index) {
     setState(() {
