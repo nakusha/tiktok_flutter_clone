@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:tiktok_clone/constants/sizes.dart';
 import 'package:tiktok_clone/screens/Authentication/sign_up_screen.dart';
+import 'package:tiktok_clone/screens/main_navigation/main_navigation.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -34,7 +35,8 @@ class MainApp extends StatelessWidget {
               fontWeight: FontWeight.w600,
             ),
           )),
-      home: const SignUpScreen(),
+      // home: const SignUpScreen(),
+      home: const MainNavigation(),
     );
   }
 }
