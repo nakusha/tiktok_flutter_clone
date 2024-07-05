@@ -3,6 +3,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:tiktok_clone/constants/gaps.dart';
 import 'package:tiktok_clone/constants/sizes.dart';
 import 'package:tiktok_clone/screens/profile/widgets/persistent_tab_bar.dart';
+import 'package:tiktok_clone/screens/settings/settings_screen.dart';
 
 class UserProfileScreen extends StatefulWidget {
   const UserProfileScreen({super.key});
@@ -12,6 +13,12 @@ class UserProfileScreen extends StatefulWidget {
 }
 
 class _UserProfileScreenState extends State<UserProfileScreen> {
+  void _onGearPressed() {
+    Navigator.of(context).push(MaterialPageRoute(
+      builder: (context) => const SettingsScreen(),
+    ));
+  }
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -24,8 +31,8 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                 title: const Text('이름'),
                 actions: [
                   IconButton(
-                    onPressed: () {},
-                    icon: const FaIcon(FontAwesomeIcons.bell),
+                    onPressed: _onGearPressed,
+                    icon: const FaIcon(FontAwesomeIcons.gear),
                   ),
                   // IconButton(
                   //   onPressed: () {},
